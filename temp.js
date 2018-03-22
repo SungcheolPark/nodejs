@@ -5,7 +5,6 @@ const fs = require('fs')
 app.get('/', (req, res) => res.send('Hello World!'))
 
 var seq = 0
-var i = 0
 
 app.get('/update', function(req, res) {
 
@@ -21,12 +20,7 @@ app.get('/get', function(req, res) {
 
 	fs.readFile('log.txt', 'utf8', function(err, data) {
 		
-		console.log(data)
-		if(JSON.stringify(req.query)[i] != "k")
-			i++;
-		else
-			console.log(i)
-	
+		console.log(data)		
 		res.send(data)
 			
 	});
