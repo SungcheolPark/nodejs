@@ -8,7 +8,7 @@ var seq = 0
 
 app.get('/update', function(req, res) {
 
-        fs.appendFile('log.txt', JSON.stringify(req.query)+"<BR>", function (err) {
+        fs.appendFile('data.csv', Object.values(req.query) + "\r\n", function (err) {
                 if (err) throw err
                 console.log("%j", req.query)
 		
@@ -18,7 +18,7 @@ app.get('/update', function(req, res) {
 
 app.get('/get', function(req, res) {
 
-	fs.readFile('log.txt', 'utf8', function(err, data) {
+	fs.readFile('data.csv', 'utf8', function(err, data) {
 		
 		console.log(data)		
 		res.send(data)
